@@ -10,5 +10,5 @@ window.shopConfig = {
   // Backend server URL (for creating hosted charges). If your server is hosted on another origin, set the full URL, e.g. 'https://payments.example.com'
   backendUrl: '',
   // Default currency to show
-  defaultCurrency: 'BTC'
+  defaultCurrency: 'ETH'
 };
