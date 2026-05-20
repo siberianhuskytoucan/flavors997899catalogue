@@ -113,9 +113,9 @@
     const status = $('#payment-status');
 
     if(!addrEl) return;
-    // prefill address from config
-    addrEl.value = (window.shopConfig && window.shopConfig.defaultCryptoAddress) || '';
-    currencyEl.value = (window.shopConfig && window.shopConfig.defaultCurrency) || 'BTC';
+    const cfg = window.shopConfig || {};
+    currencyEl.value = cfg.defaultCurrency || 'BTC';
+    addrEl.value = (cfg.cryptoAddresses && cfg.cryptoAddresses[currencyEl.value]) || cfg.defaultCryptoAddress || '';
 
     function updatePaymentURI(){
       const addr = addrEl.value.trim();
@@ -133,7 +133,10 @@
     }
 
     addrEl.addEventListener('input', updatePaymentURI);
-    currencyEl.addEventListener('change', updatePaymentURI);
+    currencyEl.addEventListener('change', ()=>{
+      addrEl.value = (cfg.cryptoAddresses && cfg.cryptoAddresses[currencyEl.value]) || cfg.defaultCryptoAddress || '';
+      updatePaymentURI();
+    });
     updatePaymentURI();
 
     copyBtn.addEventListener('click', ()=>{
