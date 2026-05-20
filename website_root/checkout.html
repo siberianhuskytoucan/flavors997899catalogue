@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — flavors99789catalog.com</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/shop.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Order Summary</h2>
+      <div id="cart-contents">(loading...)</div>
+      <div id="order-total"></div>
+    </section>
+
+    <section>
+      <h2>Pay with Cryptocurrency</h2>
+      <label for="currency">Currency</label>
+      <select id="currency">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="USDC">USDC (ERC-20)</option>
+      </select>
+
+      <label for="address">Recipient address</label>
+      <input id="address" type="text" style="width:100%" />
+      <div style="margin-top:8px">
+        <button id="copy-address">Copy address</button>
+        <a id="pay-uri" href="#" target="_blank" style="margin-left:8px">Open payment URI</a>
+      </div>
+      <div style="margin-top:12px">
+        <button id="server-pay">Create hosted crypto charge (recommended)</button>
+      </div>
+
+      <p style="margin-top:12px">Note: This site does not process payments automatically. Send the required crypto to the address above; funds will go directly to the recipient address you set.</p>
+    </section>
+
+    <section>
+      <button id="confirm-paid">I have sent payment (mark as paid)</button>
+      <div id="payment-status" style="margin-top:8px"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; flavors99789catalog.com</p>
+  </footer>
+</body>
+</html>
